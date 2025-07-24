@@ -61,15 +61,18 @@ window.addEventListener('DOMContentLoaded', () => {
                 keyContainer.appendChild(optionContainer);
 
                 const optionShortNameInput = document.createElement('input');
+                const optionValueInput = document.createElement('input');
+
                 optionShortNameInput.type = 'text';
                 optionShortNameInput.value = optionShortName;
                 optionShortNameInput.placeholder = "Short name";
+                optionShortNameInput.addEventListener('change', () => mapping[key][optionShortNameInput.value] = optionValueInput.value);
                 optionContainer.appendChild(optionShortNameInput);
 
-                const optionValueInput = document.createElement('input');
                 optionValueInput.type = 'text';
                 optionValueInput.value = optionValue;
                 optionValueInput.placeholder = "Value";
+                optionValueInput.addEventListener('change', () => mapping[key][optionShortNameInput.value] = optionValueInput.value);
                 optionContainer.appendChild(optionValueInput);
 
                 if (optionShortName === ""){
@@ -98,6 +101,7 @@ window.addEventListener('DOMContentLoaded', () => {
             settings['configParamsMapping'][document.getElementById('config-parameters-new-input').value] = {
                 "show": true,
             };
+            document.getElementById('config-parameters-new-input').value = '';
             renderSettings();
         });
         renderMapping(document.getElementById('config-parameters-mapping-container'), settings.configParamsMapping);
@@ -112,6 +116,7 @@ window.addEventListener('DOMContentLoaded', () => {
             settings['iapAccountsMapping'][document.getElementById('iap-accounts-new-input').value] = {
                 "show": true,
             };
+            document.getElementById('iap-accounts-new-input').value = '';
             renderSettings();
         });
         renderMapping(document.getElementById('iap-accounts-mapping-container'), settings.iapAccountsMapping);
