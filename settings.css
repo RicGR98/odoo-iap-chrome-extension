@@ -1,0 +1,30 @@
+html {
+    width: 80%;
+    margin: auto;
+}
+
+#general-section{
+    margin: auto;
+    width: 50%;
+}
+
+#settings-section {
+    width: 100%;
+    float: left;
+}
+
+#settings-section section {
+    float: left;
+    width: 50%;
+}
+
+.mapping-key {
+    font-size: larger;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-top: 10px;
+}
+
+.choice-container{
+    margin-left: 16px;
+}

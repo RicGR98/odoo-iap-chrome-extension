@@ -1,0 +1,61 @@
+@media (prefers-color-scheme: dark) {
+    body { background: #333; color: white; }
+    button { background: #333; color: white; }
+}
+
+#records-section {
+    width: 750px;
+    min-height: 200px;
+    float: left;
+}
+
+#config-parameters-section, #iap-accounts-section {
+    float: left;
+    width: 50%;
+}
+
+#settings-button {
+    float: right;
+}
+
+.record-container {
+    margin-bottom: 8px;
+    margin-top: 8px;
+    padding: 2px;
+    border-radius: 4px;
+    backdrop-filter: brightness(1.3);
+}
+
+.record-key {
+    font-size: larger;
+    font-weight: bold;
+}
+
+.current-value {
+    font-family: monospace, monospace;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 6px 12px;
+    border: 2px solid #CCCCCC;
+    cursor: pointer;
+}
+
+button.selected {
+    border: 2px solid #c280b0;
+    color: #c280b0;
+    font-weight: bold;
+}
+
+.delete-button{
+    color: #ff0000;
+}
+
+.display-none{
+    display: none;
+}

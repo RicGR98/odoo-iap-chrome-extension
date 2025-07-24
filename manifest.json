@@ -1,0 +1,26 @@
+{
+  "name": "IAP",
+  "description": "Utils for Odoo IAP",
+  "version": "1.0",
+  "manifest_version": 3,
+  "icons": {
+    "16": "images/icon16x16.png",
+    "32": "images/icon32x32.png",
+    "48": "images/icon48x48.png",
+    "128": "images/icon128x128.png"
+  },
+  "permissions": [
+    "scripting",
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "images/icon.png"
+  },
+  "options_ui": {
+    "page": "settings.html",
+    "open_in_tab": true
+  }
+}
