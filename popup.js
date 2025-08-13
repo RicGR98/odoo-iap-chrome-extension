@@ -182,8 +182,8 @@ window.addEventListener('DOMContentLoaded', async () => {
 
         async function fetchIapAccounts(mapping) {
             const response = await window.rpcCall("iap.account", "search_read", [], {
-                domain: [['service_id.name', 'in', Object.keys(mapping)]],
-                fields: ['service_id', 'account_token'],
+                domain: [['service_name', 'in', Object.keys(mapping)]],
+                fields: ['account_token', 'service_name'],
             });
             if (!response.ok) {
                 return {
@@ -197,22 +197,27 @@ window.addEventListener('DOMContentLoaded', async () => {
             if (record.id) {
                 return await window.rpcCall("iap.account", "write", [[record.id], {'account_token': accountToken}], {});
             } else {
-                const response = await window.rpcCall("iap.service", "search_read", [], {
-                    domain: [['name', '=', serviceName]],
-                    fields: ['id'],
-                });
-                const responseJson = (await response.json()).result;
-                if (responseJson.error?.data?.message || responseJson.length === 0){
-                    console.error(`No service found with the name ${serviceName}`);
-                    return;
+                const above18 = window.location.pathname.startsWith('/odoo');
+                if (above18){
+                    const response = await window.rpcCall("iap.service", "search_read", [], {
+                        domain: [['technical_name', '=', serviceName]],
+                        fields: ['id'],
+                    });
+                    const responseJson = (await response.json()).result;
+                    if (responseJson.error?.data?.message || responseJson.length === 0){
+                        console.error(`No service found with the name ${serviceName}`);
+                        return;
+                    }
+                    const serviceId = responseJson[0].id;
+                    return await window.rpcCall("iap.account", "create", [{'service_name': serviceName, 'service_id': serviceId, 'account_token': accountToken}], {});
+                } else {
+                    return await window.rpcCall("iap.account", "create", [{'service_name': serviceName, 'account_token': accountToken}], {});
                 }
-                const serviceId = responseJson[0].id;
-                return await window.rpcCall("iap.account", "create", [{'name': serviceName, 'service_id': serviceId, 'account_token': accountToken}], {});
             }
         }
 
         function filterFunc(records, fieldValue) {
-            return records.filter((record) => record.service_id[1] === fieldValue);
+            return records.filter((record) => record.service_name === fieldValue);
         }
 
         if (!settings.iapAccountsShow) {

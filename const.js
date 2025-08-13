@@ -16,20 +16,20 @@ const DEFAULT_SETTINGS = {
     },
     "iapAccountsShow": true,
     "iapAccountsMapping": {
-        'Partner Autocomplete': {
+        'partner_autocomplete': {
             'show': true,
             'short': 'my_partner_autocomplete_account_token',
-            '(None)': '',
+            'dummy': 'dummy',
         },
-        'SMS': {
+        'sms': {
             'show': true,
             'short': 'my_sms_account_token',
-            '(None)': '',
+            'dummy': 'dummy',
         },
-        'Document Digitization': {
+        'invoice_ocr': {
             'show': true,
             'short': 'my_invoice_ocr_account_token',
-            '(None)': '',
+            'dummy': 'dummy',
         },
     },
 };
