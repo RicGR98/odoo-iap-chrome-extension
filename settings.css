@@ -1,6 +1,10 @@
-html {
-    width: 80%;
+html, body {
+    height: 100%;
     margin: auto;
+}
+
+body {
+    width: 80%;
 }
 
 #general-section{
@@ -10,21 +14,27 @@ html {
 
 #settings-section {
     width: 100%;
+    height: 100%;
     float: left;
 }
 
 #settings-section section {
     float: left;
     width: 50%;
+    height: 100%;
 }
 
-.mapping-key {
-    font-size: larger;
-    font-weight: bold;
-    text-decoration: underline;
-    margin-top: 10px;
+.status-message-ok {
+    color: green;
+    display: none;
 }
 
-.choice-container{
-    margin-left: 16px;
+.status-message-nok {
+    color: red;
+    display: none;
+}
+
+.mapping-textarea {
+    width: 80%;
+    height: 500px;
 }

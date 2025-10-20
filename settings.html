@@ -12,7 +12,7 @@
         <div>
             <p>For each key of your choice, you can define multiple options.</p>
             <p>Each option has its short name (that will be displayed in the popup as a button) and the actual value that is going to be used.</p>
-            <p>You can hide (without deleting) a key from the popup by unchecking the Show checkbox.</p>
+            <p>The special option "show" is a boolean to determine whether to show the option or not (without deleting it entirely)</p>
             <p>Don't forget to click on Save to apply your changes and see how the popup behaves in an Odoo instance</p>
         </div>
 
@@ -30,17 +30,14 @@
             <label for="config-parameters-show-checkbox">Show Config Parameters in the Popup</label>
             <input type="checkbox" id="config-parameters-show-checkbox">
 
-            <div>
-                <label for="config-parameters-new-input">Create new Config Param:</label>
-                <input type="text" id="config-parameters-new-input" placeholder="database.uuid">
-                <button id="config-parameters-new-button">
-                    Add config parameter
-                </button>
+            <h3>Mapping</h3>
+            <div id="config-parameters-status-message-ok" class="status-message-ok">
+                Format looking good! Don't forget to <b>save</b> if you're done.
             </div>
-
-            <h3>Mappings</h3>
-            <div id="config-parameters-mapping-container">
+            <div id="config-parameters-status-message-nok" class="status-message-nok">
+                There is an issue with the format.
             </div>
+            <textarea id="config-parameters-mapping" class="mapping-textarea"></textarea>
         </section>
 
         <section id="iap-accounts-section">
@@ -49,17 +46,14 @@
             <label for="iap-accounts-show-checkbox">Show IAP Accounts in the Popup</label>
             <input type="checkbox" id="iap-accounts-show-checkbox">
 
-            <div>
-                <label for="iap-accounts-new-input">Create new IAP Account:</label>
-                <input type="text" id="iap-accounts-new-input" placeholder="iap.endpoint">
-                <button id="iap-accounts-new-button">
-                    Add IAP Account
-                </button>
+            <h3>Mapping</h3>
+            <div id="iap-accounts-status-message-ok" class="status-message-ok">
+                Format looking good! Don't forget to <b>save</b> if you're done.
             </div>
-
-            <h3>Mappings</h3>
-            <div id="iap-accounts-mapping-container">
+            <div id="iap-accounts-status-message-nok" class="status-message-nok">
+                There is an issue with the format.
             </div>
+            <textarea id="iap-accounts-mapping" class="mapping-textarea"></textarea>
         </section>
 
     </section>
