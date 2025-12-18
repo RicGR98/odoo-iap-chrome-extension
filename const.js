@@ -7,11 +7,31 @@ const DEFAULT_SETTINGS = {
             'test': 'https://iap-test.odoo.com',
             'local': 'http://localhost:8469',
         },
+        'iap_services.endpoint': {
+            'show': true,
+            'prod': 'https://iap-services.odoo.com',
+            'test': 'https://iap-services-test.odoo.com',
+            'local': 'http://localhost:8469',
+        },
+        'sms.endpoint': {
+            'show': true,
+            'prod': 'https://sms.api.odoo.com',
+            'local': 'http://localhost:8469',
+        },
+        'snailmail.endpoint': {
+            'show': true,
+            'prod': 'https://iap-snailmail.odoo.com',
+            'local': 'http://localhost:8469',
+        },
         'iap.partner_autocomplete.endpoint': {
             'show': true,
             'prod': 'https://iap-services.odoo.com',
             'test': 'https://iap-services-test.odoo.com',
             'local': 'http://localhost:8469',
+        },
+        'database.uuid': {
+            'show': true,
+            'skip_sub': 'skip_check_subscription',
         },
     },
     "iapAccountsShow": true,
